@@ -204,7 +204,7 @@ static void render_qmk_logo(void) {
 static void render_status(void) {
     // QMK Logo and version information
     render_qmk_logo();
-    oled_write_P(PSTR("Henlo... ^^\n\n"), false);
+    oled_write_P(PSTR("         ...henlo ^^\n\n"), false);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
@@ -261,11 +261,22 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
     else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
+        switch (biton32(layer_state)) {
+            case _COLEMAK:
+                // Page up/Page down
+                if (clockwise) {
+                    tap_code(KC_MS_WH_DOWN);
+                } else {
+                    tap_code(KC_MS_WH_UP);
+                }
+                break;
+            default:
+                if (clockwise) {
+                    tap_code16(C(KC_TAB));
+                } else {
+                    tap_code16(S(C(KC_TAB)));
+                }
+                break;
         }
     }
 }

@@ -27,6 +27,13 @@
 #    define RGBLIGHT_VAL_STEP 8
 #endif
 
+#define ENCODER_DIRECTION_FLIP
+#define ENCODER_RESOLUTION 2
+
+#define TAPPING_TERM 200
+// Allows media codes to properly register in macros and rotary encoder code
+#define TAP_CODE_DELAY 10
+
 // If you are using an Elite C rev3 on the follower side, uncomment the lines below:
 #define SPLIT_USB_DETECT
 #define NO_USB_STARTUP_CHECK
