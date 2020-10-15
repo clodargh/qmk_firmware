@@ -30,42 +30,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: COLEMAK
  *
  * ,---------------------------------------------------------------------.                                ,--------------------------------------------------.
- * |RAIS/ESC|      Q      |      W     |     F     |       P     |   B   |                                |   J  |    L   |   U   |   Y      |   '  |  | \   |
+ * |   ESC  |      Q      |      W     |     F     |       P     |   B   |                                |   J  |    L   |   U   |   Y      |   '  |  | \   |
  * |--------+-------------+------------+-----------+-------------+-------|                                |------+--------+-------+----------+------+--------|
  * |   BS   |      A      |      S     |     D     |       F     |   G   |                                |   M  |    N   |   E   |   I      |   O  |  ' "   |
  * |  Ctrl  |     LGUI    |    LAlt    |   LCtrl   |    LShift   |       |                                |      | LShift | LCtrl | LAlt     | LGUI |  ' "   |
  * |--------+-------------+------------+-----------+-------------+-------+---------------.  ,-------------+------+--------+-------+----------+------+--------|
- * | LShift |   LAltGr/Z  |      X     |     C     |      D      |   V   |       |       |  |      |      |   K  |    H   |   ,   | ./LAltGr |   /  |  - _   |
+ * | LShift |      Z      |  X/RAltGr  |     C     |      D      |   V   |       |       |  |      |      |   K  |    H   |   ,   | ./RAltGr |   /  |  - _   |
  * `----------------------+------------+-----------+-------------+-------+       |       |  |      +      +------+--------+-------+--------------------------'
  *                                     |    GUI    |     Del     | Esc   | Space | Tab   |  | Enter| Space| Tab  |  Bksp  | AltGr |
  *                                     |           |             | Media | Nav   | Mouse |  | SSymb| Symb | Fns  |        |       |
  *                                     `-------------------------------------------------'  `----------------------------------'
  */
     [_COLEMAK] = LAYOUT(
-      LT(_RAISE, KC_ESC),      KC_Q,                 KC_W,                 KC_F,                 KC_P,                 KC_B,                                                                                                       KC_J,                    KC_L,                 KC_U,                 KC_Y,                   KC_QUOT,              KC_PIPE,
+      KC_ESC,                  KC_Q,                 KC_W,                 KC_F,                 KC_P,                 KC_B,                                                                                                       KC_J,                    KC_L,                 KC_U,                 KC_Y,                   KC_QUOT,              KC_PIPE,
       MT(MOD_LCTL, KC_BSPC),   MT(MOD_LGUI, KC_A),   MT(MOD_LALT, KC_R),   MT(MOD_LCTL, KC_S),   MT(MOD_LSFT, KC_T),   KC_G,                                                                                                       KC_M,                    MT(KC_LSFT, KC_N),    MT(KC_LCTL, KC_E),    MT(KC_LALT, KC_I),      MT(KC_LGUI, KC_O),    KC_QUOT,
-      KC_LSFT,                 MT(MOD_LALTGR, KC_Z), KC_X,                 KC_C,                 KC_D,                 KC_V,               KC_LSFT,          KC_LSFT,            KC_LSFT,                   KC_LSFT,               KC_K,                    KC_H,                 KC_COMM,              MT(KC_LALTGR, KC_DOT),  KC_SLSH,              KC_MINS,
+      KC_LSFT,                 KC_Z,                 MT(MOD_RALT, KC_X),   KC_C,                 KC_D,                 KC_V,               KC_LSFT,          KC_LSFT,            KC_LSFT,                   KC_LSFT,               KC_K,                    KC_H,                 KC_COMM,              MT(KC_RALT, KC_DOT),    KC_SLSH,              KC_MINS,
                                                                            KC_LGUI,              KC_DEL,               LT(_MEDIA, KC_ESC), LT(_NAV, KC_SPC), LT(_MOUSE, KC_TAB), LT(_SHIFTSYMBOLS, KC_ENT), LT(_SYMBOLS, KC_BSPC), LT(_FUNCTIONS, KC_DEL),  KC_BSPC,              KC_RALT
     ),
 /*
- * Lower Layer: Symbols
+ * Layer: Media
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  !   |  @   |  {   |  }   |  |   |                              |      |      |      |      |      |  | \   |
+ * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  #   |  $   |  (   |  )   |  `   |                              |   +  |  -   |  /   |  *   |  %   |  ' "   |
+ * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  %   |  ^   |  [   |  ]   |  ~   |      |      |  |      |      |   &  |  =   |  ,   |  .   |  / ? | - _    |
+ * |        |      |      |      |      |      |      |      |  |      |      |      |      |      |      |      |        |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      |      |      |  ;   |  =   |  |  =   |  ;   |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
-    [_MEDIA] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, _______, _______, _______, _______, KC_BSLS,
-      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
-                                 _______, _______, _______, KC_SCLN, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
+   [_MEDIA] = LAYOUT(
+      _______, _______, _______, _______, _______, _______,                                     RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,
+      _______, _______, _______, _______, _______, _______,                                     _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                 _______, _______, _______, _______, _______, KC_MSTP, KC_MPLY, KC_MUTE, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
@@ -81,11 +81,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
+    // [_NAV] = LAYOUT(
+    //   _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    //   _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+    //   _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
+    //                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    // ),
     [_NAV] = LAYOUT(
-      _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      _______, _______, _______, _______, _______, _______,                                     KC_AGIN, KC_UNDO, KC_CUT,  KC_COPY, KC_PSTE, _______,
+      _______, _______, _______, _______, _______, _______,                                     KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
+                                 _______, _______, _______, _______, _______, KC_ENT,  KC_BSPC, KC_DEL,  _______, _______
     ),
 /*
  * Adjust Layer: Function keys, RGB
@@ -161,6 +167,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *                        |      |      |      |      |      |  |      |      |      |      |      |
     *                        `----------------------------------'  `----------------------------------'
     */
+   /*
+ * Lower Layer: Symbols
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |        |  !   |  @   |  {   |  }   |  |   |                              |      |      |      |      |      |  | \   |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |        |  #   |  $   |  (   |  )   |  `   |                              |   +  |  -   |  /   |  *   |  %   |  ' "   |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * |        |  %   |  ^   |  [   |  ]   |  ~   |      |      |  |      |      |   &  |  =   |  ,   |  .   |  / ? | - _    |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |      |      |      |  ;   |  =   |  |  =   |  ;   |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+   //  */
+//     [_symbs] = LAYOUT(
+//       _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, _______, _______, _______, _______, KC_BSLS,
+//       _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
+//       _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+//                                  _______, _______, _______, KC_SCLN, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
+//     ),
     [_SYMBOLS] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
       _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
@@ -190,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _MEDIA, _NAV, _MOUSE, _SHIFTSYMBOLS, _SYMBOLS, _FUNCTIONS);
+    return update_tri_layer_state(state, _MEDIA, _NAV, _MOUSE);  // No need for this function but lazily leaving it here with randomly chosen layers for the time being
 }
 
 #ifdef OLED_DRIVER_ENABLE
@@ -224,7 +251,7 @@ static void render_qmk_logo(void) {
 static void render_status(void) {
     // QMK Logo and version information
     render_qmk_logo();
-    oled_write_P(PSTR("Henlo...\n\n"), false);
+    oled_write_P(PSTR("Henlo... ^^\n\n"), false);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("Layer: "), false);
@@ -239,7 +266,7 @@ static void render_status(void) {
             oled_write_P(PSTR("Symbols\n"), false);
             break;
         case _SHIFTSYMBOLS:
-            oled_write_P(PSTR("Shifted Symbols\n"), false);
+            oled_write_P(PSTR("Shift Symbols\n"), false);
             break;
         case _FUNCTIONS:
             oled_write_P(PSTR("Functions\n"), false);
