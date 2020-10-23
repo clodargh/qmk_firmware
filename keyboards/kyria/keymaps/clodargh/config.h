@@ -30,7 +30,10 @@
 #define ENCODER_DIRECTION_FLIP
 #define ENCODER_RESOLUTION 2
 
-#define TAPPING_TERM 180
+#define IGNORE_MOD_TAP_INTERRUPT
+// #define PERMISSIVE_HOLD // no good, quick tapping sequences such as rapid backspacing really suffer
+#define TAPPING_TERM 200
+
 // Allows media codes to properly register in macros and rotary encoder code
 #define TAP_CODE_DELAY 10
 
