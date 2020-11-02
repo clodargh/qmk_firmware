@@ -20,7 +20,7 @@ enum layers {
     _MEDIA,
     _NAV,
     _MOUSE,
-    _SHIFTSYMBOLS,
+    _CODING,
     _SYMBOLS,
     _FUNCTIONS
 };
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,    KC_Q,                 KC_W,                 KC_F,                 KC_P,                 KC_B,                                                                                                           KC_J,                    KC_L,                 KC_U,                 KC_Y,                   KC_QUOT,              XXXXXXX,
       KC_Q,      MT(MOD_LGUI, KC_A),   MT(MOD_LALT, KC_R),   MT(MOD_LCTL, KC_S),   MT(MOD_LSFT, KC_T),   KC_G,                                                                                                           KC_M,                    MT(MOD_LSFT, KC_N),   MT(MOD_LCTL, KC_E),   MT(MOD_LALT, KC_I),     MT(MOD_LGUI, KC_O),   KC_QUOT,
       XXXXXXX,   KC_Z,                 MT(MOD_RALT, KC_X),   KC_C,                 KC_D,                 KC_V,               XXXXXXX,          XXXXXXX,                XXXXXXX,                   XXXXXXX,               KC_K,                    KC_H,                 KC_COMM,              MT(KC_RALT, KC_DOT),    KC_SLSH,              XXXXXXX,
-                                                             XXXXXXX,              XXXXXXX,              LT(_MEDIA, KC_ESC), LT(_NAV, KC_SPC), LT(_MOUSE, KC_TAB),     LT(_SHIFTSYMBOLS, KC_ENT), LT(_SYMBOLS, KC_BSPC), LT(_FUNCTIONS, KC_DEL),  XXXXXXX,              XXXXXXX
+                                                             XXXXXXX,              XXXXXXX,              LT(_MEDIA, KC_ESC), LT(_NAV, KC_SPC), LT(_MOUSE, KC_TAB),     LT(_CODING, KC_ENT), LT(_SYMBOLS, KC_BSPC), LT(_FUNCTIONS, KC_DEL),  XXXXXXX,              XXXXXXX
     ),
 /*
  * Layer: Media
@@ -154,12 +154,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //       _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
 //                                  _______, _______, _______, KC_SCLN, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
 //     ),
-    // [_SHIFTSYMBOLS] = LAYOUT(
-    //   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-    //   _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
-    //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    //                              _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-    // ),
+    [_CODING] = LAYOUT(
+      _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
+      _______, _______, LSFT(KC_NUHS), LSFT(KC_MINS), LALT(KC_3), _______,                                     _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    ),
     [_SYMBOLS] = LAYOUT(
       _______, KC_LBRACKET, KC_7, KC_8, KC_9, KC_RBRACKET,                                     _______, _______, _______, _______, _______, _______,
       _______, KC_SCOLON, KC_4, KC_5, KC_6, KC_EQL,                                      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
@@ -214,8 +214,8 @@ static void render_status(void) {
         case _SYMBOLS:
             oled_write_P(PSTR("Symbols\n"), false);
             break;
-        case _SHIFTSYMBOLS:
-            oled_write_P(PSTR("Bonus\n"), false);
+        case _CODING:
+            oled_write_P(PSTR("Coding\n"), false);
             break;
         case _FUNCTIONS:
             oled_write_P(PSTR("Functions\n"), false);
