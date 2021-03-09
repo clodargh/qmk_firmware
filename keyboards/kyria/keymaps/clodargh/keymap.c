@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,    KC_Q,                 KC_W,                 KC_F,                 KC_P,                 KC_B,                                                                                                           KC_J,                    KC_L,                   KC_U,                 KC_Y,                   KC_QUOT,              XXXXXXX,
       KC_Q,      MT(MOD_LGUI, KC_A),   MT(MOD_LALT, KC_R),   MT(MOD_LCTL, KC_S),   MT(MOD_LSFT, KC_T),   KC_G,                                                                                                           KC_M,                    MT(MOD_LSFT, KC_N),     MT(MOD_LCTL, KC_E),   MT(MOD_LALT, KC_I),     MT(MOD_LGUI, KC_O),   KC_QUOT,
       XXXXXXX,   KC_Z,                 MT(MOD_RALT, KC_X),   KC_C,                 KC_D,                 KC_V,               XXXXXXX,            XXXXXXX,             XXXXXXX,               XXXXXXX,                    KC_K,                    KC_H,                   KC_COMM,              MT(KC_RALT, KC_DOT),    KC_SLSH,              XXXXXXX,
-                                                             XXXXXXX,              LT(_MEDIA, KC_ESC),   LT(_NAV, KC_SPC),   LT(_MOUSE, KC_TAB), XXXXXXX,             XXXXXXX,               LT(_CODING, KC_ENT),        LT(_SYMBOLS, KC_BSPC),   LT(_FUNCTIONS, KC_DEL), XXXXXXX
+                                                             XXXXXXX,              LT(_MEDIA, KC_ESC),   LT(_MOUSE, KC_TAB), LT(_NAV, KC_SPC),   XXXXXXX,             XXXXXXX,               LT(_SYMBOLS, KC_BSPC),      LT(_CODING, KC_ENT),     LT(_FUNCTIONS, KC_DEL), XXXXXXX
     ),
 /*
  * Layer: Media
@@ -66,19 +66,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______, _______,                                     RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, _______,
       _______, _______, _______, _______, _______, _______,                                     _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, _______,
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                                 _______, _______, _______, _______, _______, _______, KC_MSTP, KC_MPLY, KC_MUTE, _______
+                                 _______, _______, _______, _______, _______, _______, KC_MPLY, KC_MSTP, KC_MUTE, _______
     ),
     [_NAV] = LAYOUT(
       _______, _______, _______, _______, _______, _______,                                     LGUI(KC_Z), LGUI(KC_X),  LGUI(KC_C), LGUI(KC_V), LGUI(LSFT(KC_Z)), _______,
       _______, _______, _______, _______, _______, _______,                                     KC_CAPS, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
-                                 _______, _______, _______, _______, _______, _______, KC_ENT,  KC_BSPC, KC_DEL,  _______
+                                 _______, _______, _______, _______, _______, _______, KC_BSPC, KC_ENT,  KC_DEL,  _______
     ),
     [_FUNCTIONS] = LAYOUT(
       _______, KC_F12, KC_F7, KC_F8, KC_F9, KC_PSCR,                                     _______, _______, _______, _______, _______, _______,
       _______, KC_F11, KC_F4, KC_F5, KC_F6, KC_SLCK,                                     _______, _______, _______, _______, _______, _______,
       _______, KC_F10, KC_F1, KC_F2, KC_F3, KC_PAUS, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                                 _______, KC_APP, KC_SPC, KC_TAB, _______, _______, _______, _______, _______, _______
+                                 _______, KC_APP, KC_TAB, KC_SPC, _______, _______, _______, _______, _______, _______
     ),
 // /*
 //  * Layer template
@@ -165,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_LBRACKET, KC_7, KC_8, KC_9, KC_RBRACKET,                                     _______, _______, _______, _______, _______, _______,
       _______, KC_SCOLON, KC_4, KC_5, KC_6, KC_EQL,                                      _______, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
       _______, KC_GRAVE, KC_1, KC_2, KC_3, KC_NUBS, _______, _______, _______, _______, _______, _______, _______, KC_RALT, _______, _______,
-                                 _______, KC_KP_DOT, KC_0, KC_KP_MINUS, _______, _______, _______, _______, _______, _______
+                                 _______, KC_KP_DOT, KC_KP_MINUS, KC_0, _______, _______, _______, _______, _______, _______
     ),
 
 };
